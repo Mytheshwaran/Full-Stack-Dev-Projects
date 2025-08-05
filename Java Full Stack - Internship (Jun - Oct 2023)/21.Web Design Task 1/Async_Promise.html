@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+<title>Async</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+	<div class="container text-center col-sm-6"
+		style="border: 3px solid black; height: 50%">
+		<h2>Asynchronous and Promise Example</h2>
+		<br>
+		<p id="result">Result</p>
+	</div>
+	
+	<script>
+	function displayPromise(result) {
+		document.getElementById("result").innerHTML=result;
+	}
+
+	async function asyncFunction() 
+	{
+		return "Hello User";
+		//return Promise.resolve("Hello User");
+	}
+
+	asyncFunction().then(
+	  function(value) {displayPromise(value);},
+	  function(error) {displayPromise(error);}
+	);
+	</script>
+
+</body>
+</html>

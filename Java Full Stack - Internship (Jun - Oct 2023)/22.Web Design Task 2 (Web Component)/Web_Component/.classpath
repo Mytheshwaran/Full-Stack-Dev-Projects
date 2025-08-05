@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/home/mytheshwaran/Downloads/Wildfly/wildfly-17.0.1.Final/modules/system/layers/base/javax/servlet/api/main/jboss-servlet-api_4.0_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/home/mytheshwaran/Downloads/Library/javax.persistence-2.1.0 (1).jar"/>
+	<classpathentry kind="lib" path="/home/mytheshwaran/Downloads/Library/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/mytheshwaran/Videos/Work-Space/Web_Component/WebContent/WEB-INF/lib/Web_Component_JPA.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

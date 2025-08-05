@@ -1,0 +1,132 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+
+{% block title %}
+VIDFrame | Media Details Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid py-5 my-4">
+         <div class="row my-3">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
+                        {% if media.type == 'image' %}
+                            <li class="breadcrumb-item"><a href="{% url 'userImages' userName=request.user.username %}">Images</a></li>
+                        {% elif media.type == 'video' %}
+                            <li class="breadcrumb-item"><a href="{% url 'userReels' userName=request.user.username %}">Reels</a></li>
+                        {% endif %}
+                        <li class="breadcrumb-item active" aria-current="page"> {{ media.name }} (Comments) <i class="fa fa-refresh" onclick="location.reload();"></i></li>
+                    </ol>
+                </nav> 
+            </div>
+                {% include 'VIDFrame/inc/message.html' %}
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                <table class="table table-bordered" style="text-align:center;" id="comments_table">
+                    <thead>
+                        <tr>
+                            <td colspan="4">
+                                <div class="col-12">
+                                    <h2>Media's Comments</h2>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <form action="" id="user-search-form">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Search by posted Users" name="searchInput" id="searchInput">
+                                                <button class="input-group-text btn btn-outline-dark bg-success" type="submit">
+                                                <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <colgroup>
+                            <col> <col width="50%"> <col>
+                        </colgroup>
+                        <tr>
+                            <th scope="col">Media Name</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Commented By</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        {% for item in comments %}
+                            <tr>
+                                <td>{{ item.media.name }}</td>
+                                <td id="col_comment">
+                                    <div class="col_comment_text">{{ item.comment_text }}</div>
+                                    <div class="col_edit_comment_text" hidden>
+                                        <form action="{% url 'editComment' commentId=item.id mediaId=item.media.id %}" method="post">
+                                            {% csrf_token %}
+                                            <span class="input-group">
+                                                <textarea name="comment_text" id="comment_text" class="form-control">{{ item.comment_text }}</textarea>
+                                                <button type="submit" class="btn btn-primary input-group-text">Edit</button>
+                                            </span>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td><span class="posted_by_user" data-by_user="{{ item.posted_by_user }}">{{ item.posted_by_user }}</span></td>
+                                <td>
+                                    <span class="py-2">
+                                        <a href="{% url 'delComment' commentId=item.id %}"><button class="btn btn-danger">Delete</button></a>
+                                        {% if item.posted_by_user.id == request.user.id %}
+                                            <button id="commentEditBtn" class="btn btn-info">Edit</button>
+                                        {% endif %}
+                                    </span>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4">
+                                    <p class="lead">No comments found yet.</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <div class="d-flex justify-content-center">
+                                    <nav aria-label="Table pagination">
+                                        <ul class="pagination pagination-controls" id="pagination-controls"></ul>
+                                    </nav>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('button[id="commentEditBtn"]').on('click', function(){
+                const commentForm = $(this).parent().parent().siblings('#col_comment').find('form')
+                $(commentForm).parent().prop('hidden', !$(commentForm).parent().prop('hidden'))
+                $(commentForm).parent().siblings('.col_comment_text').prop('hidden', !$(commentForm).parent().siblings('.col_comment_text').prop('hidden'))
+            });
+            createTablePagination($("#comments_table"));
+
+            // search
+            const searchInput = $('#user-search-form').find('#searchInput')
+            const searchForm = $('#user-search-form')
+            const allRows = $('#comments_table').children('tbody').find('tr')
+
+            searchInput.on('keyup', function(){
+                filterComments(allRows, searchInput.val());
+            });
+
+            $('#user-search-form').on('submit', function(e) {
+                e.preventDefault(); 
+                filterComments(allRows, searchInput.val()); 
+            });
+        });
+    </script>
+{% endblock script %}

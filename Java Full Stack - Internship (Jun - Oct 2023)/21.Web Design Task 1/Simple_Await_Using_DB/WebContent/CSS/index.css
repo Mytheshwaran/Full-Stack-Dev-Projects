@@ -1,0 +1,25 @@
+body {
+	 background: rgb(34,193,195);
+	 background: linear-gradient(50deg, rgba(34,193,195,1) 0%, rgba(45,89,253,1) 100%); 
+}
+
+#form {
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 20px;
+	margin:12% 30% 12% 30%;
+	padding: 20px;
+	background-color: rgba(255,255,255,0.1);
+}
+
+#form input{
+	cursor: pointer;
+}
+
+#form:hover {
+	background-color: rgb(67,210,254,1.0);
+}
+
+button:hover,input:hover{
+	background-color: #0df3e0;
+}

@@ -1,0 +1,48 @@
+{% extends 'shop/layouts/main.html' %}
+
+{% block title %}
+Shopkart User Favourite
+{% endblock title %}
+
+
+{% block content %}
+
+    <section class="bg-light py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Favorite Products</h4>
+                    <hr style="border-color: whitesmoke;">
+                    {% include 'shop/inc/message.html' %}
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Images</th>
+                        <th>Product Name</th>
+                        <th>Amount</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for item in favorites %}
+                    <tr>
+                        <td>
+                            {% if item.Product.product_image %}
+                                <img src="{{ item.Product.product_image.url }}" height="75px" alt="{{ item.Product.name }}">
+                            {% else %}
+                                {{ item.Product.name }}
+                            {% endif %}
+                        </td>
+                        <td>{{ item.Product.name }}</td>
+                        <td>₹ {{ item.Product.selling_price | floatformat:0 }}</td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" href="{% url 'remove_fav' fid=item.id %}" onclick="return confirm('Are you sure? to delete.')">
+                                <i class="fa fa-trash"></i> Remove
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

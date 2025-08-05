@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top px-5">
+  <div class="container-fluid mx-5">
+    <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-video-camera" ></i> VIDFrame </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-5">
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}"><i class="fa fa-home"></i> Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'reels' %}active{% endif %}" aria-current="page" href="{% url 'reels' %}"><i class="fa fa-play"></i> Reels </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'images' %}active{% endif %}" aria-current="page" href="{% url 'images' %}"><i class="fa fa-picture-o"></i> Images </a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link 
+              {% if request.resolver_match.url_name == 'profile' or request.resolver_match.url_name == 'updateProfile' or request.resolver_match.url_name == 'mediaUpload' or request.resolver_match.url_name == 'userReels' or request.resolver_match.url_name == 'userImages' or request.resolver_match.url_name == 'imageDetails' or request.resolver_match.url_name == 'videoDetails' or request.resolver_match.url_name == 'delReel' or request.resolver_match.url_name == 'delImage' or request.resolver_match.url_name == 'comments' or request.resolver_match.url_name == 'editComment' or request.resolver_match.url_name == 'delComment' %}
+              active
+              {% endif %}" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user" ></i> {{ request.user }}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out" ></i> Logout </a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>

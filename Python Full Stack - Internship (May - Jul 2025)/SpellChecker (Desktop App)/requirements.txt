@@ -1,0 +1,4 @@
+pyqt5 
+pyspellchecker 
+language-tool-python 
+python-docx

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Component</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="CSS/index.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="JS/Register.js"></script>
+<script type='text/javascript'
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+</head>
+<body>
+	<div class="container" id="box">
+		<form id="form" class="text-center" method="POST">
+			<h2>Registration Form</h2>
+			<hr>
+			<div class="form-group row">
+				<label class="col-sm-4">Name:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="name"
+						placeholder="Name" required>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4">Age:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="number" class="form-control" min="1" max="60" id="age"
+						placeholder="Age" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">D.O.B:<span class="required">*</span></label>
+				<div class="col-sm-8 input-group date">
+					<span class="input-group-addon"><i
+						class="glyphicon glyphicon-calendar"></i></span> <input type="text"
+						class="form-control" id="birth" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">Blood Group:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<select id="blood-group" style="float: left">
+						<option value="A+VE">A+VE</option>
+						<option value="A-VE">A-VE</option>
+						<option value="B+VE">B+VE</option>
+						<option value="B-VE">B-VE</option>
+						<option value="AB+VE">AB+VE</option>
+						<option value="AB-VE">AB-VE</option>
+						<option value="O+VE">O+VE</option>
+						<option value="O-VE">O-VE</option>
+					</select><br>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">Designation:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<div class="form-check" style="float: left">
+						<input class="form-check-input" type="radio" name="designation"
+							value="Manager" checked> <label> Manager </label>
+					</div>
+					<div class="form-check" style="float: left">
+						<input class="form-check-input" type="radio" name="designation"
+							value="SeniorEngineer" checked> <label>
+							SeniorEngineer </label>
+					</div>
+					<div class="form-check" style="float: left">
+						<input class="form-check-input" type="radio" name="designation"
+							value="Engineer" checked> <label>Engineer</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">Door No:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="number" class="form-control" min="1" id="door-no"
+						placeholder="Door No" required>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4">Street:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="street"
+						placeholder="Street" required>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4">District:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="district"
+						placeholder="District" required>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4">State:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="state"
+						placeholder="State" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">Phone Number-1:<span
+					class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="p1"
+						placeholder="10-digit number" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-4">Phone Number-2:(<span
+					class="required">if applicable</span>)
+				</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="p2"
+						placeholder="10-digit number" value="NA">
+				</div>
+			</div>
+			<hr>
+			<button type="reset" class="btn-sm">Rest</button>
+			<button type="submit" class="btn-sm">Submit</button>
+			<button type="button" onclick="location.href='Login.html'"
+				class="btn-sm">GO Back</button>
+		</form>
+		<p id="res">
+	</div>
+	<script>
+		$(function() {
+			$('.input-group.date').datepicker({
+				calendarWeeks : true,
+				todayHighlight : true,
+				autoclose : true,
+				format : "yyyy-mm-dd"
+			});
+		});
+	</script>
+</body>
+</html>

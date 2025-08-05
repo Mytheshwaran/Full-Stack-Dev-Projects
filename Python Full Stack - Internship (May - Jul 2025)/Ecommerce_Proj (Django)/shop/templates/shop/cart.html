@@ -1,0 +1,67 @@
+{% extends 'shop/layouts/main.html' %}
+
+{% block title %}
+Shopkart User Cart
+{% endblock title %}
+
+
+{% block content %}
+
+    <section class="bg-light py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Cart</h4>
+                    <hr style="border-color: whitesmoke;">
+                    {% include 'shop/inc/message.html' %}
+                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Images</th>
+                        <th>Product Name</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for item in carts %}
+                    <tr>
+                        <td>
+                            {% if item.Product.product_image %}
+                                <img src="{{ item.Product.product_image.url }}" height="75px" alt="{{ item.Product.name }}">
+                            {% else %}
+                                {{ item.Product.name }}
+                            {% endif %}
+                        </td>
+                        <td>{{ item.Product.name }}</td>
+                        <td>₹ {{ item.Product.selling_price | floatformat:0 }}</td>
+                        <td>{{ item.product_qty }}</td>
+                        <td>₹ <span class="amount">{{ item.total_price | floatformat:0  }}</span></td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" href="{% url 'remove_cart' cid=item.id %}" onclick="return confirm('Are you sure? to delete.')">
+                                <i class="fa fa-trash"></i> Remove
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4" class="text-center" style="font-weight: bolder;"> Total Price </td>
+                        <td colspan="2" id="net">0</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block script %}
+    <script>
+        const nodes = document.querySelectorAll('.amount');
+        const arr = Array.from(nodes)
+        const res = arr.reduce((acc,curr) => {
+            return acc += Number(curr.textContent)
+        }, 0);
+        document.getElementById('net').innerHTML = "₹ "+ res;
+    </script>
+{% endblock script %}

@@ -1,0 +1,136 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+VIDFrame | Registration Page
+{% endblock title %}
+
+{% block style %}
+    <style>
+    body, html{
+        height:100vh;
+        display: flex;
+        background-image: url('{% static "VIDFrame/security images/security.jpg" %}');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <div class="row card_container">
+        <div class="col-4 card_content">
+            <div class="rounded-4 bg-white p-4">
+                <form action="" method="post" id="register_form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th colspan="2"  scope="col" class="display-4 fw-bold">REGISTER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>
+                                        {{ form.username }}
+                                    </div>
+                                    {% if form.errors.username %}
+                                        <label for="{{ form.username.id_for_label }}" class="text-danger">{{ form.errors.username }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>{{ form.first_name }}</div>
+                                    {% if form.errors.first_name %}
+                                        <label for="{{ form.last_name.id_for_label }}" class="text-danger">{{ form.errors.first_name }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>{{ form.last_name }}</div>
+                                    {% if form.errors.last_name %}
+                                        <label for="{{ form.last_name.id_for_label }}" class="text-danger">{{ form.errors.last_name }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>{{ form.email }}</div>
+                                    {% if form.errors.email %}
+                                        <label for="{{ form.email.id_for_label }}" class="text-danger">{{ form.errors.email }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>{{ form.profile_pic }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div>{{ form.contact }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="input-group">
+                                        {{ form.password1 }}
+                                        <span class="input-group-text"><i class="fa fa-eye-slash"></i></span>
+                                    </div>
+                                    {% if form.errors.password1 %}
+                                        <label for="{{ form.password1.id_for_label }}" class="text-danger">{{ form.errors.password1 }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" >
+                                    <div class="input-group">
+                                        {{ form.password2 }}
+                                        <span class="input-group-text"><i class="fa fa-eye-slash"></i></span>
+                                    </div>
+                                    {% if form.errors.password2 %}
+                                        <label for="{{ form.password2.id_for_label }}" class="text-danger">{{ form.errors.password2 }}</label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class="btn btn-primary" style="width:100%; height:100%;"> Register </button></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"  scope="col">
+                                    {% include 'VIDFrame/inc/message.html' %}
+                                    Already have an Account? 
+                                    <a class="btn btn-primary rounded-pill" href="{% url 'login' %}"><i class="fa fa-sign-in" ></i> Login </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(event){
+            const passwordInputEle1 = $('#{{ form.password1.id_for_label }}')
+            const eyeIconEle1 = $(passwordInputEle1).next('span').children('i')
+            const passwordInputEle2 = $('#{{ form.password2.id_for_label }}')
+            const eyeIconEle2 = $(passwordInputEle2).next('span').children('i')
+            const registerForm = $('#register_form')
+
+            toggleEye(passwordInputEle1, eyeIconEle1);
+            toggleEye(passwordInputEle2, eyeIconEle2);
+
+            registerFormValidation($(registerForm),$(passwordInputEle1));
+        });
+    </script>
+{% endblock script %}

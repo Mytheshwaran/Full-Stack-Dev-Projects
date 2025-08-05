@@ -1,0 +1,109 @@
+.card_container{
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_content {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    max-width: 400px; 
+    width: 90%; 
+}
+
+.profile, .profile_fields ul{
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.profile_pic{
+    overflow: hidden;
+    border-radius: 30%;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    border: 4px solid black;
+}
+
+.nav-item > .dropdown ul li > a:hover{
+    background-color: black;
+    color: white;
+}
+
+.user_pic{
+    background-color: aqua;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    backdrop-filter: blur(2px); /* Optional blur effect */
+    background-color: rgba(0,0,0,0.6); /* Black with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-container{
+    max-width:50vw;
+    max-height: 50vh;
+}
+
+.popup-content {
+    position: relative;
+    animation: fadeIn 0.3s ease-out; /* Simple animation */
+}
+
+.popup-close-button {
+    position: absolute;
+    top: -5px;
+    right: 25px;
+    transition: 0.3s;
+    color:black;
+    font-size: 2em;
+    cursor: pointer;
+    display:flex;
+}
+
+.popup-content-form{
+    text-align: center;
+    display: flex;
+}
+.popup-close-button:hover,
+.popup-close-button:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#media-user-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    display:flex;
+}
+
+#media-user-logo img{
+    width: 100%;
+    height: 100%;
+}
+
+#createMediaBtn i{
+    font-size: 2em;
+    color:darkgreen;
+}
+
+        /* @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        } */

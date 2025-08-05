@@ -1,0 +1,64 @@
+<section class="container-fluid py-5 my-2">
+    <section class="popup-overlay">
+        <div class="row popup-container" >
+            <div class="col-12 popup-content">
+                <span class="popup-close-button">&times;</span>
+                <div class="row popup-content-form">
+                    <div class="col-12">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Media Creation Form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="input-group">
+                                                <label for="{{ form.name.id_for_label }}" class="input-group-text"> Media Name </label>
+                                                {{ form.name }}
+                                            </div>
+                                            <label for="{{ form.name.id_for_label }}" class="text-danger"> </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="input-group">
+                                                <label for="{{ form.description.id_for_label }}" class="input-group-text"> Media Description </label>
+                                                {{ form.description }}
+                                            </div>
+                                            <label for="{{ form.description.id_for_label }}" class="text-danger"> </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="input-group">
+                                                {{ form.file }}
+                                                {{ form.type }}
+                                            </div>
+                                            <label for="{{ form.file.id_for_label }}" class="text-danger"> </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div id="alert_info"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="submit" class="btn btn-primary"> Create </button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

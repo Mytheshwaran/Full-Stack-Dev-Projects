@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jdbc>
+	<database>
+		<url>jdbc:postgresql://localhost/test</url>
+		<username>jdbcuser</username>
+		<password>mytheshwaran</password>
+	</database>
+</jdbc>

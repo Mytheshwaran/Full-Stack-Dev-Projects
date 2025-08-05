@@ -1,0 +1,60 @@
+html {
+	font-size:11px;
+}
+body {
+	background-color: #fcf9c4;
+	font-size:30px;
+}
+
+button:hover,input:hover,#hover:hover{
+	background-color: #0df3e0;
+}
+
+#textpx {
+	font-size:16px;
+	background-color:grey;
+}
+
+#textrem {
+	font-size:1rem;
+	background-color:lightblue;
+}
+
+#textem {
+	font-size:1em;
+	padding:2em;
+	background-color:lightgreen;
+}
+
+.box1{
+	border:10px solid #729fcf;
+	padding:2em;
+}
+.box2 {
+	border:10px solid #8fcdf7;
+	padding:2em;
+}
+
+.box1 #p1 {
+	border:10px solid black;
+	width:10%;
+	height:50%;
+}
+
+.box2 #p1 {
+	border:10px solid black;
+	width:10vw;
+	height:50vh;
+}
+
+.calcbox {
+  left: 50px;
+  width: calc(100% - 50%);
+  border: 5px solid black;
+  padding: 5px;
+}
+
+
+
+
+

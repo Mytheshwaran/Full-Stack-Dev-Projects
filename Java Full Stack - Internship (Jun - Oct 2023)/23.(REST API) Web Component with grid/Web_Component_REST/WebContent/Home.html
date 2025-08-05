@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.3.2/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.3.2/styles/ag-theme-balham.css">
+<script type="text/javascript" src="JS/Home.js"></script>
+<link rel="stylesheet" href="CSS/index.css">
+<style>
+#box {
+	position: absolute;
+	padding: 4%;
+}
+
+#pop-up-msg {
+	position: absolute;
+	margin-top: -20%;
+	margin-left: 33%;
+	padding: 4%;
+	border: 2px solid lightblue;
+	background-color: black;
+	color: white;
+	opacity: 0.5;
+	border-radius: 30px;
+}
+
+.ag-theme-balham .ag-row-selected {
+	background-color: #73d216;
+}
+
+.ag-theme-balham .ag-ltr .ag-row-focus {
+	border: 1px solid red;
+}
+
+.ag-theme-balham .ag-row-hover {
+	background-color: #4abbff;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div id="box">
+			<form id="form1" class="text-center">
+				<button type="button" class="btn bg-transparent"
+					onclick="location.href='Register.html'">Register</button>
+			</form>
+		</div>
+		<div style="margin-top: 25%" id="table">
+			<ag-grid></ag-grid>
+			<pop-up-msg id="pop-up-msg" style="display:none"></pop-up-msg>
+		</div>
+	</div>
+</body>
+</html>
+
+

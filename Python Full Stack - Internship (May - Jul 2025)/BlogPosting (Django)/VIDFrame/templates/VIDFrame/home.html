@@ -1,0 +1,16 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+    
+{% block title %}
+VIDFrame | Home Page
+{% endblock title %}
+
+{% block content %}
+    <div class="col-12 mt-5 pt-2">
+        {% include 'VIDFrame/inc/slider.html' %}
+    </div>
+    <section>
+        <div class="container-fluid">
+            {% include 'VIDFrame/inc/message.html' %}
+        </div>
+    </section>
+{% endblock content %}

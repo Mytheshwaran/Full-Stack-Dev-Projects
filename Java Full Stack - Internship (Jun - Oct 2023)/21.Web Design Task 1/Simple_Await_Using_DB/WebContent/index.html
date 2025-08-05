@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Database Login</title>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="CSS/index.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="JS/index.js"></script>
+</head>
+<body>
+	<div class="container text-center">
+		<form id="form">
+			<h1>Login</h1>
+
+			<br> <input type="text" class="form-control" name="name"
+				id="name" placeholder="Enter Name" required="required" /><br>
+			<br> <input class="form-control" type="password" name="password"
+				id="pass" placeholder="Enter Password" required="required" /><br>
+
+			<button type="submit" class="btn">Submit</button>
+
+		</form>
+		<p id="response"></p>
+	</div>
+
+	<script>
+	$(document).ready(function() 
+			{
+				$("#form").submit(function (event)
+				{
+					callAsyncFunction();			
+				
+					event.preventDefault();
+				});
+			});
+	function callAsyncFunction()
+	{
+		var formData = {
+				name: $("#name").val(),
+				password:$("#pass").val(),
+				};
+				
+				let promise=sendRequest(formData);
+				
+				promise.then(
+					async function(value){
+						document.getElementById("response").innerHTML= await promise;
+					},
+					function(error){
+						document.getElementById("response").innerHTML= "Error: "+error.responseText;
+					});
+	}
+	</script>
+</body>
+</html>

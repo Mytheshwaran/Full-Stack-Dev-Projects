@@ -1,0 +1,36 @@
+{% load static %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner bg-secondary" style="height: 500px;">
+        <div class="carousel-item active">
+            <img src="{% static 'VIDFrame/slider/images/pexels-pixabay-262508.jpg' %}" style="height: 500px; width: 100%;"  alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'VIDFrame/slider/images/technology-communication-icons-symbols-concept_53876-120314.jpg' %}" alt="Slide 2" style="height:500px; width: 100%;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'VIDFrame/slider/images/istockphoto-1320976219-612x612.jpg' %}" alt="Slide 3" style="height:500px; width: 100%;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'VIDFrame/slider/images/color-correction-cover.jpg' %}" alt="Slide 4" style="height:500px; width: 100%;">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'VIDFrame/slider/images/31.jpg' %}" alt="Slide 5" style="height:500px; width: 100%;">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

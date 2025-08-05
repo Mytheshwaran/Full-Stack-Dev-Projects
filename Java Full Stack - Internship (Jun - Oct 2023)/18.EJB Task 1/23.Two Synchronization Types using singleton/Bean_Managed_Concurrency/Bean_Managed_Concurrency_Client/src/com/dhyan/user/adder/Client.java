@@ -1,0 +1,62 @@
+package com.dhyan.user.adder;
+
+import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+import com.dhyan.common.singleton.RemoteInterface;
+
+public class Client
+{
+    private static RemoteInterface remoteObj;
+    
+    public static void main(String[] args)
+    {
+        Properties properties = new Properties();
+        properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        properties.put(Context.PROVIDER_URL, "http-remoting://localhost:8080");
+        try
+        {
+            Context context = new InitialContext(properties);
+            remoteObj = (RemoteInterface) context
+                    .lookup("ejb:Bean_Managed_Concurrency/Bean_Managed_Concurrency_EJB/SingletonImplementaion!com.dhyan.common.singleton.RemoteInterface");
+            
+            for (int i = 0; i < 3; i++)
+            {
+                System.out.println("--------------------------------");
+                Thread t1 = new Thread(new Runnable()
+                {
+                    public void run()
+                    {
+                        System.out.println(Thread.currentThread().getName() + " - " + Thread.currentThread().getState());
+                        System.out.println(Thread.currentThread().getName() + " - " +remoteObj.getCounter());
+                        remoteObj.increment();
+                        System.out.println(Thread.currentThread().getName()+" - Completed  the Increment");
+                        System.out.println("=="+Thread.currentThread().getName() + " - " +remoteObj.getCounter());
+                    }
+                },"t1");
+
+                Thread t2 = new Thread(new Runnable()
+                {
+                    public void run()
+                    {
+                        System.out.println(Thread.currentThread().getName() + " - " + Thread.currentThread().getState());
+                        System.out.println(Thread.currentThread().getName() + " - " +remoteObj.getCounter());
+                        remoteObj.increment();
+                        System.out.println(Thread.currentThread().getName()+" - Completed  the Increment");
+                        System.out.println("=="+Thread.currentThread().getName() + " - " +remoteObj.getCounter());
+                    }
+                },"t2");
+
+                t1.start();
+                t2.start();
+                Thread.sleep(1500);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}

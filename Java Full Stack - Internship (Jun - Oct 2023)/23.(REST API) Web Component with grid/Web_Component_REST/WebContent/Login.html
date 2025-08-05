@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="CSS/index.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="JS/Login.js"></script>
+</head>
+<body>
+	<div class="container" id="box" style="margin-top: 15%">
+		<form id="form" class="text-center" method="POST">
+			<h2>Login</h2>
+			<hr>
+			<div class="form-group row">
+				<label class="col-sm-4">Name:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="name"
+						placeholder="Name" required>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4">PhoneNumber:<span class="required">*</span></label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" id="password"
+						placeholder="Enter any 1 phoneNumber" required/>
+				</div>
+			</div>
+			<hr>
+			<span><button id="submit">Login</button><button onclick="location.href='Register.html'">Register</button></span>
+		</form>
+	</div>
+</body>
+</html>

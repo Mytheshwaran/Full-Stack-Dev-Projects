@@ -1,0 +1,143 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+
+{% block title %}
+VIDFrame | Media Details Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid py-5 my-2 px-5">
+        <div class="row my-3">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
+                        {% if media.type == 'image' %}
+                            <li class="breadcrumb-item"><a href="{% url 'userImages' userName=request.user.username %}">Images</a></li>
+                        {% elif media.type == 'video' %}
+                            <li class="breadcrumb-item"><a href="{% url 'userReels' userName=request.user.username %}">Reels</a></li>
+                        {% endif %}
+                        <li class="breadcrumb-item active" aria-current="page"> {{ media.name }} Details <i class="fa fa-refresh" onclick="location.reload();"></i></li>
+                    </ol>
+                </nav> 
+            </div>
+                {% include 'VIDFrame/inc/message.html' %}
+        </div>
+        <div class="row my-3">
+            <div class="col-12">
+                <table class="table table-bordered" style="text-align: center;" id="media_details_table">
+                    <thead>
+                        <tr>
+                            <th colspan="6"><h2>Media Details</h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">User</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        <tr>
+                            <td>{{ media.user.username }}</td>
+                            <td>{{ media.name }}</td>
+                            <td>{{ media.description }}</td>
+                            <td>{{ media.created_datetime }}</td>
+                            <td><a href="{% url 'comments' mediaId=media.id %}"><button class="btn btn-primary" width="100%" height="100%">Comments</button></a></td>
+                            <td>
+                                {% with delete_url="" %} {# Initialize an empty variable #}
+                                    {% if media.type == 'image' %}
+                                        {% url 'delImage' mediaId=media.id userName=request.user.username as delete_url %}
+                                    {% elif media.type == 'video' %}
+                                        {% url 'delReel' mediaId=media.id userName=request.user.username as delete_url %}
+                                    {% endif %}
+
+                                    <a href="{{ delete_url }}" class="text-decoration-none">
+                                        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">
+                                            Delete
+                                        </button>
+                                    </a>
+                                {% endwith %}
+                                <a href="#" class="text-decoration-none">
+                                    <button class="btn btn-info" width="100%" height="100%" id="btnEdit">
+                                        Edit
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5 my-2" id="mediaEditForm" hidden>
+        <section class="popup-overlay">
+            <div class="row popup-container" >
+                <div class="col-12 popup-content">
+                    <span class="popup-close-button">&times;</span>
+                    <div class="row popup-content-form">
+                        <div class="col-12">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Media Edit Form</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="input-group">
+                                                    <label for="mediaName" class="input-group-text"> Media Name </label>
+                                                    <input type="text" name="name" value="{{ media.name }}" id="mediaName">
+                                                </div>
+                                                <label for="mediaName" class="text-danger"> </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="input-group">
+                                                    <label for="mediaDescription" class="input-group-text"> Media Description </label>
+                                                    <textarea name="description" id="mediaDescription">{{ media.description }}</textarea>
+                                                </div>
+                                                <label for="mediaDescription" class="text-danger"> </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><button class="btn btn-primary" id="mediaEditSubmitBtn">Submit</button></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(event){
+            const editMediaBtn = $('#btnEdit')
+            const mediaCreationFormSection = $('#mediaEditForm')
+            const popupCloseBtn = $(mediaCreationFormSection).find('.popup-close-button')
+
+            $(editMediaBtn).on('click', function(){
+                mediaCreationFormSection.attr('hidden', false)
+                $(mediaCreationFormSection).find('.popup-overlay').css('display', 'flex');
+            })
+
+            $(popupCloseBtn).on('click', function(){
+                mediaCreationFormSection.attr('hidden', true)
+                $(mediaCreationFormSection).find('.popup-overlay').css('display', 'none');
+            })
+            
+        });
+    </script>
+{% endblock script %}

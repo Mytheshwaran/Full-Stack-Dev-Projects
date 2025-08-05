@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alert</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	background-color: lightgrey;
+}
+
+.box {
+display:none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -100px;
+	border: 2px solid black;
+	width: 30%;
+	padding: 10px;
+	background-color: white;
+	border-radius: 20px;
+}
+
+.box:hover, input:hover, button:hover {
+	background-color: lightblue;
+}
+</style>
+</head>
+<body>
+	<input type="text" id="message" name="message"
+		placeholder="Enter Message" />
+	<div class="box text-center">
+		<h3>Alert</h3>
+		<p id="box-content"></p>
+		<button id="ok" class="btn-sm" style="float: right">OK</button>
+	</div>
+	<button id="button" onclick="alertFunction()">Show Alert</button>
+
+	<script>
+		$("#ok").click(function() {
+			$('#message').prop('disabled',false);
+			 $('#button').prop('disabled', false);
+			$(".box").hide();
+		});
+		function alertFunction() {
+			 $('#button').prop('disabled', true);
+			 $('#message').prop('disabled',true);
+			var message = $("#message").val();
+			document.getElementById("box-content").innerHTML = message;
+			$(".box").show();
+
+		}
+	</script>
+</body>
+</html>

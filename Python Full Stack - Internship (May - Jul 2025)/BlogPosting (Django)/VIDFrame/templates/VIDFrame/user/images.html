@@ -1,0 +1,155 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+
+{% block title %}
+VIDFRame | User Media Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid py-5 my-2 px-5">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div id="media-user-logo" title="Profile">
+                            <a href="{% url 'profile' %}" class="p-0">
+                                <img src="{{ profile.profile_pic.url }}" alt="Profile_Pic">
+                            </a>
+                        </div>
+                        <h5 class="display-5">Images</h5>
+                        <a href="" title="Add" id="createMediaBtn"><i class="fa fa-plus-circle"></i></a>
+                    </div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Images <i class="fa fa-refresh" onclick="location.reload();"></i></li>
+                        </ol>
+                    </nav> 
+                </div>
+                {% include 'VIDFrame/inc/message.html' %}
+            </div>
+        </div>
+        <div class="row border" id="content-container">
+            <div class="row justify-content-end py-3">
+                <div class="col-4">
+                    <form action="" id="user-search-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search by Media Name" name="searchInput" id="searchInput">
+                            <button class="input-group-text btn btn-outline-dark bg-success" type="submit">
+                            <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% for item in images %}
+                <div class="col-md-4 mb-4 py-4" id="paginated-item">
+                    <div class="card h-100">
+                        {% if item.file.url %}
+                            <img src="{{ item.file.url }}" class="card-img-top" style="width: 100%; height: 250px;" alt="No image found">
+                        {% else %}
+                            <div class="text-center text-muted p-4">
+                                <p>No Images available for this item.</p>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="media_name" data-media_name="{{ item.name|default:'Untitled Video' }}">{{ item.name|default:"Untitled Video" }}</span></h5>
+                            {% if item.description %}
+                                <p class="card-text">Description: {{ item.description|truncatechars:100 }}</p>
+                            {% endif %}
+                            <p class="card-text text-muted small">
+                                <span>{{ item.user.username }}</span>,
+                                Uploaded: {{ item.created_datetime|date:"M d, Y" }}
+                            </p>
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="AddCommentBtn"> Add Comment</button>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <a href="{% url 'videoDetails' userName=request.user.username mediaId=item.id %}"><button class="btn btn-sm btn-outline-primary mt-2">View Details</button></a>
+                                </div>
+                            </div>
+                            <div class="py-4 comment_input" hidden>
+                                <form action="{% url 'addComment' mediaId=item.id %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <textarea name="comment_text" class="form-control" maxlength="250"></textarea>
+                                        <button type="submit" class="btn btn-primary input-group-text" disabled>Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <label class="text-danger" hidden></label>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12 text-center py-5" id="paginated-item">
+                    <p class="lead">No videos found yet.</p>
+                    <p>Upload your first video to see it here!</p>
+                </div>
+            {% endfor %}
+            <div class="col-12 d-flex justify-content-center">
+                <nav aria-label="Page navigation for content">
+                    <ul class="pagination" id="pagination-controls"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaUploadModalContainer">
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(event) {
+            mediaUploadSection(event);
+
+            
+            const addCommentBtn = $('button[type="button"][id="AddCommentBtn"]')
+            
+            $(addCommentBtn).on('click', function(){
+                const commentInputDiv = $(this).parent().parent().siblings('.comment_input')
+                $(commentInputDiv).prop('hidden', !$(commentInputDiv).prop('hidden'));
+                if($(commentInputDiv).prop('hidden')){
+                    $(commentInputDiv).siblings('label').html('');
+                }
+            });
+            
+            $('textarea[name="comment_text"]').on('input', function(){ 
+                let comment_text = $(this).val().trim(); 
+                const commentSubmitBtn = $(this).siblings('button')
+                const errorMsgEle = $(this).parent().parent().parent().siblings('label')
+
+                if (comment_text === '') { 
+                    $(errorMsgEle).prop('hidden', false); 
+                    $(errorMsgEle).html('Enter some value in comment input.');
+                    $(commentSubmitBtn).prop('disabled', true); 
+                } else if (comment_text.length < 3){ 
+                    $(errorMsgEle).prop('hidden', false); 
+                    $(errorMsgEle).html('Comment must be at least 3 characters long.');
+                    $(commentSubmitBtn).prop('disabled', true); 
+                }
+                else {
+                    $(errorMsgEle).prop('hidden', true);
+                    $(commentSubmitBtn).prop('disabled', false); 
+                }
+            });
+
+            createDivPagination($("#content-container"));
+            
+            // search
+            const searchInput = $('#searchInput');
+            const userCardsContainer = $('#content-container');
+            const allUserCards = userCardsContainer.children('#paginated-item'); 
+
+            searchInput.on('keyup', function() {
+                filterMediaName(allUserCards, searchInput.val());
+            });
+
+            $('#user-search-form').on('submit', function(e) {
+                e.preventDefault(); 
+                filterMediaName(allUserCards, searchInput.val()); 
+            });
+        });
+    </script>
+{% endblock script %}

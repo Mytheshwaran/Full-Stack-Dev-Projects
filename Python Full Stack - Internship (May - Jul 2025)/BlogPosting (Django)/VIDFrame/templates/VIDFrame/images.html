@@ -1,0 +1,126 @@
+{% extends 'VIDFrame/layouts/main.html' %}
+
+{% block title %}
+VIDFRame | Images Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid py-5 my-2 px-5">
+        <div class="row my-3">
+            <div class="d-flex align-items-center">
+                <div class="col-8"><h1>All Images</h1></div>
+                <div class="col-4">
+                    <form action="" id="user-search-form">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search by Users" name="searchInput" id="searchInput">
+                        <button class="input-group-text btn btn-outline-dark bg-success" type="submit">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12">
+                {% include 'VIDFrame/inc/message.html' %}
+            </div>
+        </div>
+        <div class="row border" id="content-container">
+           {% for item in images %}
+                <div class="col-md-4 mb-4 py-4" id="paginated-item">
+                    <div class="card h-100">
+                        {% if item.file.url %}
+                            <img src="{{ item.file.url }}" class="card-img-top" style="width: 100%; height: 250px;" alt="No image found">
+                        {% else %}
+                            <div class="text-center text-muted p-4">
+                                <p>No Images available for this item.</p>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name|default:"Untitled Video" }}</h5>
+                            <p class="card-text text-muted small">
+                                <span data-username="{{ item.user.username }}" class="username">{{ item.user.username }}</span>,
+                                Uploaded: {{ item.created_datetime|date:"M d, Y" }}
+                            </p>
+                            {% if item.description %}
+                                <p class="card-text">{{ item.description|truncatechars:100 }}</p>
+                            {% endif %}
+                            
+                            <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="AddCommentBtn"> Add Comment</button>
+                            <form action="{% url 'addComment' mediaId=item.id %}" method="post" class="py-4" hidden>
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <textarea name="comment_text" class="form-control" maxlength="250"></textarea>
+                                    <button type="submit" class="btn btn-primary input-group-text" disabled>Send</button>
+                                </div>
+                            </form>
+                            <label for="" class="text-danger" hidden></label>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12 text-center py-5" id="paginated-item">
+                    <p class="lead">No Images found yet.</p>
+                    <p>Upload your first Image to see it here!</p>
+                </div>
+            {% endfor %}
+            <div class="col-12 d-flex justify-content-center">
+                <nav aria-label="Page navigation for content">
+                    <ul class="pagination" id="pagination-controls"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            const addCommentBtn = $('button[type="button"][id="AddCommentBtn"]')
+            $(addCommentBtn).on('click',function(){
+                const commentForm = $(this).siblings('form')
+                const errorMsg = $(this).siblings('label')
+                $(commentForm).prop('hidden', !$(commentForm).prop('hidden'))
+                if ($(commentForm).prop('hidden')){
+                    $(errorMsg).html('')
+                }
+            });
+
+            $('textarea[name="comment_text"]').on('input', function(){ 
+                let comment_text = $(this).val().trim(); 
+                const commentSubmitBtn = $(this).siblings('button')
+                const errorMsgEle = $(this).parent().parent().siblings('label')
+
+                if (comment_text === '') { 
+                    $(errorMsgEle).prop('hidden', false); 
+                    $(errorMsgEle).html('Enter some value in comment input.');
+                    $(commentSubmitBtn).prop('disabled', true); 
+                } else if (comment_text.length < 3){ 
+                    $(errorMsgEle).prop('hidden', false); 
+                    $(errorMsgEle).html('Comment must be at least 3 characters long.');
+                    $(commentSubmitBtn).prop('disabled', true); 
+                }
+                else {
+                    $(errorMsgEle).prop('hidden', true);
+                    $(commentSubmitBtn).prop('disabled', false); 
+                }
+            });
+
+            // Pagination
+            createDivPagination($("#content-container"));
+
+            // Search
+            const searchInput = $('#searchInput');
+            const userCardsContainer = $('#content-container');
+            const allUserCards = userCardsContainer.children('#paginated-item'); 
+
+            searchInput.on('keyup', function() {
+                filterUserCards(allUserCards, searchInput.val());
+            });
+
+            $('#user-search-form').on('submit', function(e) {
+                e.preventDefault();
+                filterUserCards(allUserCards, searchInput.val());
+            });
+        });
+    </script>
+{% endblock script %}
