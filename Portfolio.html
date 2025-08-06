@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytheshwaran Gurunathan - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ90zMhF3wL5LzFz9N6U3+2g6Z0J1Kk6lFp5lQ5Q1iY+V0M5h1A5/4e5e4A5/4g5u+Q5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #343a40;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .card {
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #6a11cb !important;
+        }
+        .btn-primary {
+            background-color: #6a11cb;
+            border-color: #6a11cb;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #5a0eb0;
+            border-color: #5a0eb0;
+        }
+        .text-primary-custom {
+            color: #6a11cb !important;
+        }
+        .badge-custom {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .company-logo {
+            width: 80px; 
+            height: 80px; 
+            object-fit: contain; 
+            border-radius: 0.5rem; 
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .company-logo {
+                margin-bottom: 0; 
+                margin-right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100">
+
+    <!-- Header & Navigation Section -->
+    <header class="shadow-sm sticky-top bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light py-3" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand fs-3 fw-bold text-primary-custom" href="#">Mytheshwaran</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- (About Me) -->
+        <section id="about" class="bg-gradient-primary text-white text-center section-padding">
+            <div class="container">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="rounded-circle bg-white d-flex align-items-center justify-content-center p-5 border border-5 border-light" style="width: 180px; height: 180px;">
+                        <h1 class="display-3 fw-bold text-primary-custom">MG</h1>
+                    </div>
+                </div>
+                <h1 class="display-4 fw-bolder mb-3">Mytheshwaran Gurunathan</h1>
+                <p class="fs-4 fw-light mb-4">Python Developer | Web Developer</p>
+                <p class="mx-auto w-75 fs-5 opacity-75">
+                    I am a self-motivated developer with hands-on internship experience in developing innovative web applications and optimizing testing frameworks. Eager to contribute my technical skills and grow within a reputable company, I am dedicated to learning and adapting to new challenges in software engineering.
+                </p>
+                <div class="mt-5 d-flex justify-content-center gap-4">
+                    <a href="https://github.com/Mytheshwaran/Full-Stack-Dev-Projects" target="_blank" class="text-white fs-2 opacity-75 hover-opacity"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mytheshwaran-gurunathan-7a3a10298" target="_blank" class="text-white fs-2 opacity-75 hover-opacity"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:mytheshwaran08112001@gmail.com" target="_blank" class="text-white fs-2 opacity-75 hover-opacity"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship & Training Section -->
+        <section id="experience" class="bg-white section-padding">
+            <div class="container">
+                <h2 class="display-5 fw-bold text-center text-dark mb-5">Internship & Training</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Python Full Stack - Intern -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center mb-3">
+                                    <a href="https://inmakes.com/" target="_blank"><img src="https://media.licdn.com/dms/image/v2/D563DAQFdP8fJulQsgw/image-scale_191_1128/image-scale_191_1128/0/1664277375447/inmakesofficial_cover?e=2147483647&v=beta&t=pwaMs8tIAWX6B8fzuKT71NbpzVIT0AcK_adeLfjqIqs" alt="Inmakes Infotech Pvt Ltd Logo" class="company-logo"></a>
+                                    <div>
+                                        <h3 class="fs-4 fw-semibold text-primary-custom mb-1">Python Full Stack - Intern</h3>
+                                        <p class="text-muted mb-1">Inmakes Infotech Pvt Ltd | Ernakulam, kerala, India</p>
+                                        <p class="text-secondary-emphasis small mb-0">May 2025 - Jul 2025</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#inmakesDetails" aria-expanded="false" aria-controls="inmakesDetails">
+                                    Show More Details
+                                </button>
+                                <div class="collapse mt-3 row g-3" id="inmakesDetails">
+                                    <a href="https://github.com/Mytheshwaran/Full-Stack-Dev-Projects/blob/main/Training%20%26%20Intern%20Certificates/Inmakes-Internship-Certificate.pdf" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-file-pdf me-2"></i>View Inmakes Infotech Intern Certificate
+                                    </a>
+                                    <ul class="list-unstyled mb-0 text-muted">
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Acquired proficiency in Python, databases (SQLite, MySQL, PostgreSQL), and front-end technologies (HTML, CSS, JavaScript, jQuery, Bootstrap).</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Developed e-commerce and blog posting websites using the Django framework, integrating Python, MySQL, jQuery, and Bootstrap.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Gained hands-on experience with Django REST Framework and developed a face recognition login page using ReactJS and Axios.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Engineer Trainee - Intern -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center mb-3">
+                                    <a href="https://www.dhyan.com/" target="_blank"><img src="data:image/jpeg;base64,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" alt="Dhyan Networks and Technologies Pvt Ltd Logo" class="company-logo"></a>
+                                    <div>
+                                        <h3 class="fs-4 fw-semibold text-primary-custom mb-1">Software Engineer Trainee - Intern</h3>
+                                        <p class="text-muted mb-1">Dhyan Networks and Technologies Pvt Ltd | Chennai, Tamilnadu, India</p>
+                                        <p class="text-secondary-emphasis small mb-0">Jan 2023 - Oct 2023</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#dhyanDetails" aria-expanded="false" aria-controls="dhyanDetails">
+                                    Show More Details
+                                </button>
+                                <div class="collapse mt-3 row g-3" id="dhyanDetails">
+                                    <a href="https://github.com/Mytheshwaran/Full-Stack-Dev-Projects/blob/main/Training%20%26%20Intern%20Certificates/Dhyan_Internship_Letter_January23_October23.pdf" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-file-pdf me-2"></i>View Dhyan Intern Certificate
+                                    </a>
+                                    <ul class="list-unstyled mb-0 text-muted">
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Contributed to an IoT web application ('StreetMan'), implementing features using Core Java, J2EE, REST API, Apache Struts, HTML, CSS, JavaScript, and PSQL.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Transformed manual testing processes into an automated framework using Robot Framework.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Implemented Java OOPS-based task programs for a Taxi Booking System, FIFA Teams Management, and a Cards game, showcasing strong object-oriented programming skills.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Networking Training -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center mb-3">
+                                    <a href="http://stcskills.com/" target="_blank"><img src="https://media.licdn.com/dms/image/v2/D560BAQE-DH7psLZojQ/company-logo_200_200/company-logo_200_200/0/1665054591581?e=2147483647&v=beta&t=w--XntfTmxJN7qmlckB24Nu7QYFY4ZM6DtCOmFi8NRU" alt="STC Technologies Pvt Ltd Logo" class="company-logo"></a>
+                                    <div>
+                                        <h3 class="fs-4 fw-semibold text-primary-custom mb-1">Networking Training</h3>
+                                        <p class="text-muted mb-1">STC Technologies Pvt Ltd | Chennai, Tamilnadu, India</p>
+                                        <p class="text-secondary-emphasis small mb-0">Apr 2024 - Oct 2024</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#stcDetails" aria-expanded="false" aria-controls="stcDetails">
+                                    Show More Details
+                                </button>
+                                <div class="collapse mt-3 row g-3" id="stcDetails">
+                                    <a href="https://github.com/Mytheshwaran/Full-Stack-Dev-Projects/blob/main/Training%20%26%20Intern%20Certificates/STC%20Training.pdf" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-file-pdf me-2"></i>View STC Training Certificate
+                                    </a>
+                                    <ul class="list-unstyled mb-0 text-muted">
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Completed Networking Training covering Windows, Linux, Oracle 11g, basic Python, and DevOps overview.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Gained foundational knowledge in Windows and Linux server administration relevant to networking.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Developed basic skills in Oracle 11g database concepts and Python scripting for network tasks.</li>
+                                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i>Received an introduction to DevOps principles and their application in network infrastructure.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bg-light section-padding">
+            <div class="container">
+                <h2 class="display-5 fw-bold text-center text-dark mb-5">Projects</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex justify-content-center">
+                    <!-- Project Card 1: E-commerce Website -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title fw-bold text-primary-custom mb-2">E-commerce Website</h3>
+                                <p class="card-text text-muted mb-3">
+                                    A Django-based e-commerce website with user authentication, product listings, and a shopping cart.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3 mt-auto">
+                                    <span class="badge badge-custom">Python</span>
+                                    <span class="badge badge-custom">Django</span>
+                                    <span class="badge badge-custom">MySQL</span>
+                                    <span class="badge badge-custom">Bootstrap</span>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ecommerceModal">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2: Blog Posting & Image sharing Website -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title fw-bold text-primary-custom mb-2">Blog Posting & Image Sharing Website</h3>
+                                <p class="card-text text-muted mb-3">
+                                    This website aims to provide users with a seamless experience to share their thoughts, stories, and visuals. The platform comes equipped with user and admin modules, ensuring a secure and enjoyable environment for all.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3 mt-auto">
+                                    <span class="badge badge-custom">Python</span>
+                                    <span class="badge badge-custom">Django</span>
+                                    <span class="badge badge-custom">PostgreSQL</span>
+                                    <span class="badge badge-custom">Bootstrap</span>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#blogWebsiteModal">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Face Recognition Login Page -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title fw-bold text-primary-custom mb-2">Face Recognition Login Page</h3>
+                                <p class="card-text text-muted mb-3">
+                                    A login system using face recognition technology, developed with ReactJS and a Django REST backend.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3 mt-auto">
+                                    <span class="badge badge-custom">ReactJS</span>
+                                    <span class="badge badge-custom">Django REST</span>
+                                    <span class="badge badge-custom">Python</span>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#faceRecognitionModal">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4: Spelling & Grammar Checker -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title fw-bold text-primary-custom mb-2">Spelling & Grammar Checker</h3>
+                                <p class="card-text text-muted mb-3">
+                                    A desktop application for checking spelling and grammar, allowing direct input or file uploads (.txt, .docx). Provides highlighted errors and correction recommendations.
+                                </p>
+                                <div class="d-flex flex-wrap gap-2 mb-3 mt-auto">
+                                    <span class="badge badge-custom">Python</span>
+                                    <span class="badge badge-custom">PyQt5</span>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#spellCheckerModal">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Modals for Project Details -->
+        <!-- Modal 1: E-commerce Website -->
+        <div class="modal fade" id="ecommerceModal" tabindex="-1" aria-labelledby="ecommerceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-primary-custom" id="ecommerceModalLabel">E-commerce Website Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ecommerceCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Ecommerce_Proj%20(React_DjangoRESTFramework)/Screenshots/home%20page.png" class="d-block w-100" alt="E-commerce Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Ecommerce_Proj%20(React_DjangoRESTFramework)/Screenshots/product%20page.png" class="d-block w-100" alt="E-commerce Screenshot 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Ecommerce_Proj%20(Django)/Screenshots/collections%20page.png" class="d-block w-100" alt="E-commerce Screenshot 2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#ecommerceCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#ecommerceCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h6 class="fw-bold">Project Description:</h6>
+                        <p class="text-muted">
+                            This project involved building a fully functional e-commerce platform using Django for the backend and a combination of HTML, CSS, jQuery, and Bootstrap for the frontend. Key features include user authentication, product catalog management, shopping cart functionality, and order processing. I focused on creating a responsive design and a smooth user experience.
+                        </p>
+                        <h6 class="fw-bold">Technologies Used:</h6>
+                        <p class="text-muted">Python, Django, MySQL, HTML, CSS, JavaScript, jQuery, Bootstrap</p>
+                        <div class="d-flex gap-3 mt-3">
+                            <!-- <a href="#" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt me-2"></i>Live Demo</a> -->
+                            <a href="https://github.com/Mytheshwaran/Full-Stack-Dev-Projects/tree/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Ecommerce_Proj%20(Django)" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github me-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2: Blog Posting & Image sharing Website -->
+        <div class="modal fade" id="blogWebsiteModal" tabindex="-1" aria-labelledby="blogWebsiteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-primary-custom" id="blogWebsiteModalLabel">Blog Posting & Image Sharing Website Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="blogWebsiteCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Register%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Login%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Forget%20password%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Password%20reset%20mail%20notification.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Mail%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Password%20Reset%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Link%20validity%20expired%20notification.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Home%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Reels%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Image%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/Profile%20Page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Reels%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Reels%20details%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Reels%20Comments%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Images%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Image%20details%20page.png" class="d-block w-100" alt="Blog Website Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/BlogPosting%20(Django)/Screenshots/User%20Images%20comments%20page.png" class="d-block w-100" alt="Blog Website Screenshot 2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#blogWebsiteCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#blogWebsiteCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h6 class="fw-bold">Project Description:</h6>
+                        <p class="text-muted">
+                            This website aims to provide users with a seamless experience to share their thoughts, stories, and visuals. The platform comes equipped with user and admin modules, ensuring a secure and enjoyable environment for all. Developed using Python with the Django framework, PostgreSQL for the database, and Bootstrap for responsive design.
+                        </p>
+                        <h6 class="fw-bold">Technologies Used:</h6>
+                        <p class="text-muted">Python, Django, PostgreSQL, Bootstrap</p>
+                        <div class="d-flex gap-3 mt-3">
+                            <!-- <a href="#" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt me-2"></i>Live Demo</a> -->
+                            <a href="#" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github me-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3: Face Recognition Login Page -->
+        <div class="modal fade" id="faceRecognitionModal" tabindex="-1" aria-labelledby="faceRecognitionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-primary-custom" id="faceRecognitionModalLabel">Face Recognition Login Page Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="faceRecognitionCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Face_Recognition_Proj%20(Reactjs%20%26%20DjangoRestFramework)/Screenshots/Face%20Register%20Page.png" class="d-block w-100" alt="Face Recognition Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Face_Recognition_Proj%20(Reactjs%20%26%20DjangoRestFramework)/Screenshots/Username%20with%20face%20Login%20page.png" class="d-block w-100" alt="Face Recognition Screenshot 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/Face_Recognition_Proj%20(Reactjs%20%26%20DjangoRestFramework)/Screenshots/User%20details%20page%20after%20login.png" class="d-block w-100" alt="Face Recognition Screenshot 2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#faceRecognitionCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#faceRecognitionCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h6 class="fw-bold">Project Description:</h6>
+                        <p class="text-muted">
+                            Developed a secure login page utilizing face recognition technology. The frontend was built with ReactJS, handling user interface and camera access, while the backend was powered by Django REST Framework, managing face data storage and authentication logic. Axios was used for API communication between the frontend and backend.
+                        </p>
+                        <h6 class="fw-bold">Technologies Used:</h6>
+                        <p class="text-muted">ReactJS, Django REST Framework, Python, Axios</p>
+                        <div class="d-flex gap-3 mt-3">
+                            <!-- <a href="#" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt me-2"></i>Live Demo</a> -->
+                            <a href="#" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github me-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 4: Spelling and Grammar Checker Desktop Application -->
+        <div class="modal fade" id="spellCheckerModal" tabindex="-1" aria-labelledby="spellCheckerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-primary-custom" id="spellCheckerModalLabel">Spelling & Grammar Checker Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="spellCheckerCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/SpellChecker%20(Desktop%20App)/SpellingCheck.png" class="d-block w-100" alt="Spell Checker Screenshot 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://raw.githubusercontent.com/Mytheshwaran/Full-Stack-Dev-Projects/refs/heads/main/Python%20Full%20Stack%20-%20Internship%20(May%20-%20Jul%202025)/SpellChecker%20(Desktop%20App)/GrammarCheck.png" class="d-block w-100" alt="Spell Checker Screenshot 2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#spellCheckerCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#spellCheckerCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <h6 class="fw-bold">Project Description:</h6>
+                        <p class="text-muted">
+                            This desktop application is designed to provide comprehensive spelling and grammar checking. Users can directly type sentences or paragraphs into the UI, or upload text files (.txt) and Word documents (.docx) for analysis. The application highlights errors and offers intelligent correction recommendations. A circular progress bar indicates the checking status, ensuring a smooth user experience.
+                        </p>
+                        <h6 class="fw-bold">Technologies Used:</h6>
+                        <p class="text-muted">PyQt5, PySpellChecker, LanguageTool-Python, Python</p>
+                        <div class="d-flex gap-3 mt-3">
+                            <a href="#" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt me-2"></i>Live Demo</a>
+                            <a href="#" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github me-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="bg-white section-padding">
+            <div class="container">
+                <h2 class="display-5 fw-bold text-center text-dark mb-5">Skills & Education</h2>
+                <div class="row g-4">
+                    <!-- Skills -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100 p-4">
+                            <h3 class="fs-4 fw-bold text-primary-custom mb-3">Technical Skills</h3>
+                            <div class="row g-5">
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-python fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">Python</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fas fa-database fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">PostgreSQL</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fas fa-database fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">MySQL</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-linux fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">Linux</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-html5 fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">HTML</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-css3-alt fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">CSS</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-js-square fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">JavaScript</span>
+                                </div>
+                                <div class="col-6 col-sm-4 d-flex align-items-center gap-2">
+                                    <i class="fab fa-react fs-5 text-primary-custom"></i>
+                                    <span class="text-muted fw-semibold">ReactJS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100 p-4">
+                            <h3 class="fs-4 fw-bold text-primary-custom mb-4">Education</h3>
+                            <div class="d-flex flex-column gap-3">
+                                <div>
+                                    <p class="fs-5 fw-semibold text-dark mb-1">Bachelor of Technology in Information Technology</p>
+                                    <p class="text-muted mb-0">Nandha College of Technology</p>
+                                    <p class="fs-6 text-secondary-emphasis">Jan 2019 - Apr 2023 | CGPA: 83</p>
+                                </div>
+                                <div>
+                                    <p class="fs-5 fw-semibold text-dark mb-1">HSC</p>
+                                    <p class="text-muted mb-0">Lions Matriculation Higher Secondary School</p>
+                                    <p class="fs-6 text-secondary-emphasis">Jun 2018 - Mar 2019 | Percentage: 62.83%</p>
+                                </div>
+                                <div>
+                                    <p class="fs-5 fw-semibold text-dark mb-1">SSLC</p>
+                                    <p class="text-muted mb-0">Lions Matriculation Higher Secondary School</p>
+                                    <p class="fs-6 text-secondary-emphasis">Jun 2016 - Mar 2017 | Percentage: 86%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-light section-padding">
+            <div class="container">
+                <h2 class="display-5 fw-bold text-center text-dark mb-5">Contact Me</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm p-5">
+                            <p class="fs-5 text-center text-muted mb-4">I'm always open to new opportunities. Feel free to reach out!</p>
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-envelope text-primary-custom fs-5"></i>
+                                    <a href="mailto:mytheshwaran08112001@gmail.com" class="text-muted fw-semibold text-decoration-none">mytheshwaran08112001@gmail.com</a>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-phone text-primary-custom fs-5"></i>
+                                    <p class="text-muted fw-semibold mb-0">9488140416</p>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-location-dot text-primary-custom fs-5"></i>
+                                    <p class="text-muted fw-semibold mb-0">Erode, Tamilnadu, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-0">&copy; 2024 Mytheshwaran Gurunathan. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
